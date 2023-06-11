@@ -2,23 +2,29 @@ import React from "react";
 import { Outlet, NavLink } from 'react-router-dom';
 
 const Header = () => (
-    <div className="container">
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <div>
+        <div class="navbar-wrapper">
+        <nav className="navbar navbar-expand-sm bg-body-tertiary">
             <div className="container-fluid">
-                <a className="navbar-brand" href="/home">
+                <NavLink className="navbar-brand" to="/home">
                     <img src="icon.png" />
-                </a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
+                </NavLink>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div className="navbar-nav">
-                        <NavLink to='/home' className={({isActive}) => (isActive ? "nav-link active" : 'nav-link')} aria-current="page">Home</NavLink>
-                        <NavLink to='/calculator' className={({isActive}) => (isActive ? "nav-link active" : 'nav-link')}>Calculator</NavLink>
-                    </div>
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav mr-auto">
+                        <li className="nav-item">
+                            <NavLink to='/home' className={({isActive}) => (isActive ? "nav-link active" : 'nav-link')} aria-current="page">Home</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink to='/calculator' className={({isActive}) => (isActive ? "nav-link active" : 'nav-link')}>Calculator</NavLink>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
+        </div>
         <Outlet />
     </div>
 )
